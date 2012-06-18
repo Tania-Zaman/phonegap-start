@@ -58,12 +58,16 @@ run(function () {
             // Launch device video recording application,
 	    // allowing user to capture up to 2 video clips
 	    alert('video');
-	    //navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
+	    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
 	    
 	    //navigator.camera.getPicture(captureSuccess, captureError, { quality: 50, 
         //destinationType: destinationType.FILE_URI,
         //sourceType: source });
+<<<<<<< HEAD
         window.location='capture.html';
+=======
+        //window.location='capture.html';
+>>>>>>> origin/detachec
         //window.location='camera.html';
     
     });
@@ -85,6 +89,24 @@ run(function () {
         	console.log(error);
             var msg = 'An error occurred during capture: ' + error.code;
             navigator.notification.alert(msg, null, 'Uh oh!');
+    	}
+    	
+    	// Upload files to server
+	    function uploadFile(mediaFile) {
+	        var ft = new FileTransfer(),
+	            path = mediaFile.fullPath,
+	            name = mediaFile.name;
+	
+	        ft.upload(path,
+	            "http://www.mpdashboard.com/vid/upload.php",
+	            function(result) {
+	                console.log('Upload success: ' + result.responseCode);
+	                console.log(result.bytesSent + ' bytes sent');
+	            },
+	            function(error) {
+	                console.log('Error uploading file ' + path + ': ' + error.code);
+	            },
+	            { fileName: name });
     }
     
     
