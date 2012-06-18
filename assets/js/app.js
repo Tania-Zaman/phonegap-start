@@ -104,6 +104,7 @@ run(function () {
 	            function(result) {
 	                console.log('Upload success: ' + result.responseCode);
 	                console.log(result.bytesSent + ' bytes sent');
+	                console.log(result);
 	            },
 	            function(error) {
 	                console.log('Error uploading file ' + path + ': ' + error.code);
