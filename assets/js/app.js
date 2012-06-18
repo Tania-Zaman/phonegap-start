@@ -63,11 +63,11 @@ run(function () {
 	    //navigator.camera.getPicture(captureSuccess, captureError, { quality: 50, 
         //destinationType: destinationType.FILE_URI,
         //sourceType: source });
-<<<<<<< HEAD
-        window.location='capture.html';
-=======
+
         //window.location='capture.html';
->>>>>>> origin/detachec
+
+        //window.location='capture.html';
+
         //window.location='camera.html';
     
     });
