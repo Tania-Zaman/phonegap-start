@@ -79,7 +79,7 @@ run(function () {
         function captureSuccess(mediaFiles) {
             var i, len;
             for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                //uploadFile(mediaFiles[i]);
+                uploadFile(mediaFiles[i]);
             }
         }
     
