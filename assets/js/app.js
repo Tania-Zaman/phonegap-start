@@ -77,6 +77,7 @@ run(function () {
         // Called when capture operation is finished
         //
         function captureSuccess(mediaFiles) {
+        console.log(mediaFiles);
             var i, len;
             for (i = 0, len = mediaFiles.length; i < len; i += 1) {
                 uploadFile(mediaFiles[i]);
@@ -93,6 +94,7 @@ run(function () {
     	
     	// Upload files to server
 	    function uploadFile(mediaFile) {
+	    console.log('upload');
 	        var ft = new FileTransfer(),
 	            path = mediaFile.fullPath,
 	            name = mediaFile.name;
