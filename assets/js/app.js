@@ -54,11 +54,25 @@ run(function () {
         display('#welcome');
     });
     
+    var lat, long;
     when('#video', function () {
             // Launch device video recording application,
 	    // allowing user to capture up to 2 video clips
 	    alert('video');
+	    
+	    
+	    	   navigator.geolocation.getCurrentPosition(function (position) {
+	                    lat = position.coords.latitude;
+	                    long = position.coords.longitude;
+	                  }, function () {
+	                    lat = "";
+	                    long = "";
+            });
+	    
+	    
 	    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
+	    
+	    
 	    
 	    when('#go', function () {
 	             display('#welcome');        	    
@@ -76,6 +90,9 @@ run(function () {
         //
         function captureSuccess(mediaFiles) {
         console.log(mediaFiles);
+        
+        
+        
             var i, len;
             for (i = 0, len = mediaFiles.length; i < len; i += 1) {
                 uploadFile(mediaFiles[i]);
@@ -98,11 +115,7 @@ run(function () {
 	     name = mediaFile.name;
 	    
 	    
-	   var lat, long;
-	   navigator.geolocation.getCurrentPosition(function (position) {
-                lat = position.coords.latitude;
-                long = position.coords.longitude;
-              });
+	   
 	     
 	     
 	    var options = new FileUploadOptions();
