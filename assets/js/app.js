@@ -64,10 +64,12 @@ run(function () {
     });
     
     when('#go', function () {
-            display('#welcome');
-    	    
-    	   
+         display('#welcome');
+        	    
+        	   
     });
+    
+    
     //================
         // Called when capture operation is finished
         //
