@@ -96,17 +96,24 @@ run(function () {
 	    
 	   var path = mediaFile.fullPath,
 	     name = mediaFile.name;
+	    
+	    
+	   var lat, long;
+	   navigator.geolocation.getCurrentPosition(function (position) {
+                lat = position.coords.latitude 
+                long = position.coords.longitude;
+              }
+	     
+	     
 	    var options = new FileUploadOptions();
-		options.fileKey="file";
-		options.fileName=name;
-		options.mimeType="image/jpeg";
-
+		
 		var params = new Object();
-		params.value1 = "test";
-		params.value2 = "param";
+		params.latitude = lat;
+		params.longitue = long;
+		params.eventName= "The Event";
+
 
 		options.params = params;
-            	options.chunkedMode = false;
 	    
 	    
 	    

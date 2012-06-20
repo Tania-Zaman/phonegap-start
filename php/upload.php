@@ -3,7 +3,7 @@
 $x;
 foreach ($_FILES as $key => $value)
 {
-echo $key;
+//echo $key;
  foreach ($value as $k=>$v)
  {
  	if ($k=='tmp_name')
