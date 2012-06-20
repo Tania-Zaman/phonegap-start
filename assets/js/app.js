@@ -64,7 +64,7 @@ run(function () {
     });
     
     when('#go', function () {
-         when('#welcome');        	    
+         display('#welcome');        	    
         	   
     });
     
