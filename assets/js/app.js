@@ -60,13 +60,15 @@ run(function () {
 	    alert('video');
 	    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
 	    
+	    when('#go', function () {
+	             display('#welcome');        	    
+	            	   
+    	});
+	    
 	   
     });
     
-    when('#go', function () {
-         display('#welcome');        	    
-        	   
-    });
+    
     
     
     //================
