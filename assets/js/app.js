@@ -54,7 +54,7 @@ run(function () {
         display('#welcome');
     });
     
-    var lat, long;
+    var lat, long,timestamp;
     when('#video', function () {
             // Launch device video recording application,
 	    // allowing user to capture up to 2 video clips
@@ -64,6 +64,7 @@ run(function () {
 	    	   navigator.geolocation.getCurrentPosition(function (position) {
 	                    lat = position.coords.latitude;
 	                    long = position.coords.longitude;
+	                    timestamp = position.timestamp;
 	                  }, function () {
 	                    lat = "";
 	                    long = "";
@@ -123,6 +124,7 @@ run(function () {
 		var params = new Object();
 		params.latitude = lat;
 		params.longitue = long;
+		params.timestamp = timestamp;
 		params.eventName= "The Event";
 
 
