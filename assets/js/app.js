@@ -93,10 +93,28 @@ run(function () {
     	// Upload files to server
 	    function uploadFile(mediaFile) {
 	    console.log('upload');
+	    /*
+	    var options = new FileUploadOptions();
+		options.fileKey="file";
+		options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+		options.mimeType="image/jpeg";
+
+		var params = new Object();
+		params.value1 = "test";
+		params.value2 = "param";
+
+		options.params = params;
+            	options.chunkedMode = false;
+	    
+	    */
+	    
+	    
+	    
 	        var ft = new FileTransfer(),
 	            path = mediaFile.fullPath,
 	            name = mediaFile.name;
-	
+		console.log(path)
+		/*		
 	        ft.upload(path,
 	            "http://www.mpdashboard.com/vid/upload.php",
 	            function(result) {
@@ -108,6 +126,7 @@ run(function () {
 	                console.log('Error uploading file ' + path + ': ' + error.code);
 	            },
 	            { fileName: name });
+	            */
     }
     
     
