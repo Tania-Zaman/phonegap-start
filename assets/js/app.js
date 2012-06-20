@@ -94,9 +94,11 @@ run(function () {
 	    function uploadFile(mediaFile) {
 	    console.log('upload');
 	    
+	   var path = mediaFile.fullPath,
+	     name = mediaFile.name;
 	    var options = new FileUploadOptions();
 		options.fileKey="file";
-		options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+		options.fileName=name;
 		options.mimeType="image/jpeg";
 
 		var params = new Object();
@@ -110,9 +112,7 @@ run(function () {
 	    
 	    
 	    
-	        var ft = new FileTransfer(),
-	            path = mediaFile.fullPath,
-	            name = mediaFile.name;
+	        var ft = new FileTransfer();
 		console.log(path)
 				
 	        ft.upload(path,
