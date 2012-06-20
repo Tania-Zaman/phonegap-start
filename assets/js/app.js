@@ -100,7 +100,7 @@ run(function () {
 	    
 	   var lat, long;
 	   navigator.geolocation.getCurrentPosition(function (position) {
-                lat = position.coords.latitude 
+                lat = position.coords.latitude;
                 long = position.coords.longitude;
               }
 	     
