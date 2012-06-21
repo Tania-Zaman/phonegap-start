@@ -80,12 +80,12 @@ run(function () {
 	    
 	    when('#go', function () {
 	             display('#welcome');   
-	             
+	       });      
 	    when ('#see', functiom() {
 	    
 	    	console.log('see');
 	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);
-	    }
+	    
 	            	   
     	});
 	    
