@@ -60,6 +60,9 @@ run(function () {
 	    // allowing user to capture up to 2 video clips
 	    alert('video');
 	    
+	    pictureSource=navigator.camera.PictureSourceType;
+            destinationType=navigator.camera.DestinationType;
+	    
 	    
 	    	   navigator.geolocation.getCurrentPosition(function (position) {
 	                    lat = position.coords.latitude;
@@ -71,8 +74,7 @@ run(function () {
             });
 	    
 	    
-	    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2,quality: 50, destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.CAMERA});
+	    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
 	    
 	    
 	    
@@ -131,7 +133,10 @@ run(function () {
 
 		options.params = params;
 	    
-	    
+	    	options.chunkedMode = true;
+		    options.fileKey = "file";
+		    options.fileName = name;
+		options.mimeType = "video/mpeg";
 	    
 	    
 	    
@@ -152,7 +157,17 @@ run(function () {
 	            
     }
     
-    
+    function onPhotoURISuccess(imageURI) {
+                    uploadFile(imageURI,"library");
+        }
+        function getVideo(source, type) {
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality:
+    50, destinationType: destinationType.FILE_URI, sourceType: source,
+    mediaType: type});
+        }
+        function onFail(message) {
+            alert('Error');
+    }
     
    //============================== 
     
