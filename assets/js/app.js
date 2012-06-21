@@ -159,6 +159,54 @@ run(function () {
     
     
     
+    when("#view", function()
+    {
+    	ideaCommitLibraryVideoAttach();
+    
+    }
+    
+    
+    
+    function ideaCommitLibraryVideoAttach() {
+    if(PhoneGap.available) {
+        var options = {quality: 80};
+        options["sourceType"] = 0;
+        options["correctOrientation"] = true;
+        options["allowEdit"] = true;
+        options["mediaType"] = 1;
+        navigator.camera.getPicture(ideaCommitLibraryVideoReceive, ideaCommitVideoAttachFail, options);
+    }
+    }
+    
+    function ideaCommitLibraryVideoReceive(data) {
+    if(PhoneGap.available) {
+        var gotFS = function(fileSystem) {
+            var fail = function() {notify("Can't open file!");};
+            var gotFileEntry = function(fileEntry) {
+                var fail = function() {notify("Can't write attachment in a temporary file!");};
+                var gotFileWriter = function(fileWriter) {
+                    fileWriter.onwriteend = function(evt) {
+                        ideaCommitVideoReceive([fileEntry]);
+                    };
+                    fileWriter.write(data);
+                };
+                fileEntry.createWriter(gotFileWriter, fail);
+                file = fileEntry;
+            };
+            fileSystem.root.getFile("y"+ new Date().getTime()+".mp4", {create: true, exclusive: false}, gotFileEntry, fail);
+    
+        };
+        var fail = function() {notify("Can't open file system!");};
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+    }
+}
+    
+    function ideaCommitVideoAttachFail(error)
+    {
+    	alert('error');
+    }
+    
+    
    //============================== 
     
     
