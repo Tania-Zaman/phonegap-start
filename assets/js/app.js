@@ -4,6 +4,9 @@
 run(function () {
     // immediately invoked on first run
     var init = (function () {
+    
+    	pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
         if (navigator.network.connection.type == Connection.NONE) {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
@@ -89,7 +92,7 @@ run(function () {
     {
        //ideaCommitLibraryVideoAttach();
        
-       getImage(pictureSource.SAVEDPHOTOALBUM);
+       getImage(pictureSource.PHOTOLIBRARY);
         
     });
 	    
@@ -218,10 +221,29 @@ function getImage(source) {
 }
  
     
+    function onFail(message) {
+          alert('Failed because: ' + message);
+    }
     
     
+    function onPhotoURISuccess(imageURI) {
+          // Uncomment to view the image file URI 
+          console.log(imageURI);
     
+          // Get image handle
+          //
+          var image = document.getElementById('image');
     
+          // Unhide image elements
+          //
+          image.style.display = 'block';
+    
+          // Show the captured photo
+          // The inline CSS rules are used to resize the image
+          //
+          image.src = imageURI;
+        }
+
    //============================== 
     
     

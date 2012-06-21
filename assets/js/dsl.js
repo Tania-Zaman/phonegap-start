@@ -40,4 +40,6 @@ console.log('checking: '+id);
         if (radio[i].checked)
             return radio[i].value;
     }
+ ,pictureSource=navigator
+ ,destinationType;
 };
