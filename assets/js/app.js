@@ -133,8 +133,8 @@ run(function () {
 		options.params = params;
 	    
 	    	options.chunkedMode = true;
-		    options.fileKey = "file";
-		    options.fileName = name;
+		options.fileKey = "file";
+		options.fileName = name;
 		options.mimeType = "video/mpeg";
 	    
 	    

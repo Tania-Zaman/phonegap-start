@@ -6,6 +6,7 @@ foreach ($_FILES as $key => $value)
 //echo $key;
  foreach ($value as $k=>$v)
  {
+ 	echo $k."::".$v;
  	if ($k=='tmp_name')
  		$x=$v;
  }
