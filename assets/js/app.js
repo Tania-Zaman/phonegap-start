@@ -86,13 +86,6 @@ run(function () {
     });
     
     
-    when ('#see', functiom() {
-    	    
-    	    	console.log('see');
-    	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);
-    	    
-    	            	   
-        		});
 	    
     
     //================
@@ -163,19 +156,7 @@ run(function () {
 	            
     }
     
-    function onPhotoURISuccess(imageURI) {
-                    uploadFile(imageURI);
-        }
-        function getVideo(source, type) {
-        	console.log(source);
-        	console.log(type);
-                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality:
-    50, destinationType: destinationType.FILE_URI, sourceType: source,
-    mediaType: type});
-        }
-        function onFail(message) {
-            alert('Error');
-    }
+    
     
    //============================== 
     
