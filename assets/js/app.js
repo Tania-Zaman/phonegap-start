@@ -81,19 +81,19 @@ run(function () {
 	    when('#go', function () {
 	             display('#welcome');   
 	       });      
-	    when ('#see', functiom() {
-	    
-	    	console.log('see');
-	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);
-	    
-	            	   
-    	});
 	    
 	   
     });
     
     
-    
+    when ('#see', functiom() {
+    	    
+    	    	console.log('see');
+    	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);
+    	    
+    	            	   
+        		});
+	    
     
     //================
         // Called when capture operation is finished
