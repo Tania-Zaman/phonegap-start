@@ -87,7 +87,9 @@ run(function () {
     
     when("#see", function()
     {
-       ideaCommitLibraryVideoAttach();
+       //ideaCommitLibraryVideoAttach();
+       
+       getImage(pictureSource.SAVEDPHOTOALBUM);
         
     });
 	    
@@ -205,6 +207,19 @@ run(function () {
     {
     	alert('error');
     }
+    
+    
+
+function getImage(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+}
+ 
+    
+    
+    
     
     
    //============================== 
