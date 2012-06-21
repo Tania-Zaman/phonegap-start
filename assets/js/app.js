@@ -79,7 +79,12 @@ run(function () {
 	    
 	    
 	    when('#go', function () {
-	             display('#welcome');        	    
+	             display('#welcome');   
+	             
+	    when ('#see', functiom() {
+	    
+	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);">
+	    }
 	            	   
     	});
 	    
@@ -158,7 +163,7 @@ run(function () {
     }
     
     function onPhotoURISuccess(imageURI) {
-                    uploadFile(imageURI,"library");
+                    uploadFile(imageURI);
         }
         function getVideo(source, type) {
                 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality:
