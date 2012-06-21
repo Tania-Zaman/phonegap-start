@@ -84,7 +84,7 @@ run(function () {
 	    when ('#see', functiom() {
 	    
 	    	console.log('see');
-	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);">
+	    	getVideo(pictureSource.PHOTOLIBRARY,Camera.MediaType.VIDEO);
 	    }
 	            	   
     	});
