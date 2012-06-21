@@ -143,7 +143,8 @@ run(function () {
 		console.log(path)
 				
 	        ft.upload(path,
-	            "http://www.mpdashboard.com/vid/upload.php",
+	            //"http://www.mpdashboard.com/vid/upload.php",
+	            "http://192.168.1.8/vid/upload.php",
 	            function(result) {
 	                console.log('Upload success: ' + result.responseCode);
 	                console.log(result.bytesSent + ' bytes sent');
