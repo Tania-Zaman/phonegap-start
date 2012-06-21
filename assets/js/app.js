@@ -85,7 +85,11 @@ run(function () {
 	   
     });
     
-    
+    when("#see", function()
+    {
+       ideaCommitLibraryVideoAttach();
+        
+    });
 	    
     
     //================
@@ -159,11 +163,7 @@ run(function () {
     
     
     
-    when("#view", function()
-    {
-    	ideaCommitLibraryVideoAttach();
-    
-    }
+ 
     
     
     
