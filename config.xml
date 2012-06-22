@@ -23,4 +23,5 @@
 	<feature name="http://api.phonegap.com/1.0/file"/>
 
 	<preference name="orientation" value="portrait" />
+	<preference name="phonegap-version" value="1.8.1" />
 </widget>
