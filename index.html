@@ -1,108 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>Capture Photo</title>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+		<title>Training App--Tania</title>
+		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
+		<script src="cordova.js" type="text/javascript" charset="utf-8"></script>
 
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value
+		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
 
-    // Wait for Cordova to connect with the device
-    //
-    document.addEventListener("deviceready",onDeviceReady);
+		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
 
-    // Cordova is ready to be used!
-    //
-    function onDeviceReady() {
-    	console.log('device is ready!');
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
+		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoDataSuccess(imageData) {
-      // Uncomment to view the base64 encoded image data
-      console.log(imageData);
+		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
 
-      // Get image handle
-      //
-      var smallImage = document.getElementById('smallImage');
+		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
 
-      // Unhide image elements
-      //
-      smallImage.style.display = 'block';
+		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
 
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    }
+		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoURISuccess(imageURI) {
-      // Uncomment to view the image file URI
-      console.log(imageURI);
+		<script src="assets/js/json2.js" type="text/javascript" charset="utf-8"></script>
 
-      // Get image handle
-      //
-      var largeImage = document.getElementById('largeImage');
+	</head>
+	<body>
+ 		<div id="title_bar">Phone<strong>Gap</strong> Training App</div>
 
-      // Unhide image elements
-      //
-      largeImage.style.display = 'block';
+		<div id="welcome" class="view">
+		  <div class="app_button" id="map_button">Show My Location</div>
+  	      <div class="app_button" id="settings_button">Settings</div>
+  	      <div class="app_button" id="video_button">Capture Video </div>
 
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      largeImage.src = imageURI;
-    }
+  	      <div class="app_button" id="see_button">View Video </div>
+		</div>
 
-    // A button will call this function
-    //
-    function capturePhoto() {
-    console.log('capturePhoto');
-      // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
-    }
+		<div id="map" class="view">
+		  <div class="map_image">
+              <img id="static_map" src="assets/img/staticmap.png">
+		  </div>
+		  <p>This is where you are</p>
+		  <div class="app_button" id="welcome_button">Go Back</div>
+		</div>
 
-    // A button will call this function
-    //
-    function capturePhotoEdit() {
-    console.log('capturePhotoEdit');
-      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
-    }
+		<div id="settings" class="view">
+		  <form id="settings_form">
+		    <fieldset>
+		      <legend>Map Type</legend>
+			  <input type="radio" name="map" value="roadmap" checked>Road Map<br/>
+		      <input type="radio" name="map" value="satellite">Satellite<br/>
+		      <input type="radio" name="map" value="terrain">Terrain<br/>
+		      <input type="radio" name="map" value="hybrid">Hybrid<br/>
+		    </fieldset>
+		    <fieldset>
+		      <legend>Zoom Level</legend>
+  		      <input type="radio" name="zoom" value="10">Super Far<br/>
+  		      <input type="radio" name="zoom" value="12">Far<br/>
+  		      <input type="radio" name="zoom" value="15" checked>Normal<br/>
+  		      <input type="radio" name="zoom" value="18">Close<br/>
+  		      <input type="radio" name="zoom" value="20">Super Close<br/>
+  		     </fieldset>
+		      <button id="save_button">Save</button>
+	      </form>
+		</div>
 
-    // A button will call this function
-    //
-    function getPhoto(source) {
-    console.log('getPhoto');
-      // Retrieve image file location from specified source
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
-    }
+		<div id="video" class="view">
+			<p>Want to take Video?</p>
+			<div class="app_button" id="go_button">Go Back</div>
 
-    // Called if something bad happens.
-    //
-    function onFail(message) {
-      console.log('Failed because: ' + message);
-    }
+		</div>
 
-    </script>
-  </head>
-  <body>
-    <button onclick="capturePhoto();">Capture Photo</button> <br>
-    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-  </body>
+		<div id="see" class="view">
+					<img id="image"/>
+		</div>
+
+	</body>
 </html>
