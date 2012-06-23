@@ -9,6 +9,9 @@ var run = function(application) {
     }
 }
 
+ ,pictureSource=navigator
+ ,destinationType
+
 // throw our settings into a lawnchair
 , store = new Lawnchair({adaptor:'dom'})
 
@@ -40,6 +43,4 @@ console.log('checking: '+id);
         if (radio[i].checked)
             return radio[i].value;
     }
- ,pictureSource=navigator
- ,destinationType;
 };
