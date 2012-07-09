@@ -16,7 +16,7 @@ foreach ($_POST as $key => $value)
 {
 	echo $key."::".$value;
 }
-echo $x;
-echo "hello";
-//move_uploaded_file($x, 'test.mov');
+//echo $x;
+//echo "hello";
+move_uploaded_file($x, 'test.mov');
 ?>
