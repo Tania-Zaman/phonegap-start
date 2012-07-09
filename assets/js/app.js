@@ -79,7 +79,7 @@ run(function () {
 	    
 	    //navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
 	    
-	    navigator.device.capture.capturePicture(captureSuccess, captureError, {limit: 2});
+	    navigator.camera.getPicture(captureSuccess, captureError, {limit: 2});
 	    
 	    
 	    when('#go', function () {
