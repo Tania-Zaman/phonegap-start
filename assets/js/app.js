@@ -108,10 +108,10 @@ run(function () {
         
         
         
-            var i, len;
-            for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                uploadFile(mediaFiles[i]);
-            }
+           // var i, len;
+           // for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                uploadFile(mediaFiles);//[i]);
+            //}
         }
     
         // Called if something bad happens.
