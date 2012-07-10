@@ -150,7 +150,7 @@ run(function () {
 	    
 	    
 	        var ft = new FileTransfer();
-		console.log(path)
+		console.log(options);
 				
 	        ft.upload(path,
 	            "http://www.mpdashboard.com/vid/upload.php",
