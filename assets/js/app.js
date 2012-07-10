@@ -61,7 +61,7 @@ run(function () {
     when('#video', function () {
             // Launch device video recording application,
 	    // allowing user to capture up to 2 video clips
-	    alert('video');
+	    //alert('video');
 	    
 	    pictureSource=navigator.camera.PictureSourceType;
             destinationType=navigator.camera.DestinationType;
@@ -102,6 +102,8 @@ run(function () {
         // Called when capture operation is finished
         //
         function captureSuccess(mediaFiles) {
+        
+        console.log('captureSuccess');
         console.log(mediaFiles);
         
         
@@ -127,7 +129,7 @@ run(function () {
 	   var path = mediaFile.fullPath,
 	     name = mediaFile.name;
 	    
-	    
+	    console.log(mediaFile);
 	   
 	     
 	     
