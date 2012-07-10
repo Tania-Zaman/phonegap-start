@@ -145,7 +145,7 @@ run(function () {
 	    	options.chunkedMode = true;
 		options.fileKey = "file";
 		options.fileName = name;
-		options.mimeType = "video/mpeg";
+		options.mimeType = "jpg";//"video/mpeg";
 	    
 	    
 	    
