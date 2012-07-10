@@ -129,7 +129,7 @@ run(function () {
 	   var path = mediaFile.fullPath,
 	     name = mediaFile.name;
 	    
-	    console.log(mediaFile);
+	    console.log(path);
 	   
 	     
 	     
@@ -146,7 +146,7 @@ run(function () {
 	    
 	    	options.chunkedMode = true;
 		options.fileKey = "file";
-		options.fileName = name;
+		options.fileName = 'test';//name;
 		options.mimeType = "image/jpeg";//"video/mpeg";
 	    
 	    
