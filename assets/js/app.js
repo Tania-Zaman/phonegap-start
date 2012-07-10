@@ -126,7 +126,7 @@ run(function () {
 	    function uploadFile(mediaFile) {
 	    console.log('upload');
 	    
-	   var path = mediaFile.fullPath,
+	   var path = mediaFile,//.fullPath,
 	     name = mediaFile.name;
 	    
 	    console.log(path);
